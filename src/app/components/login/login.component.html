@@ -1,0 +1,61 @@
+<div class="container">
+  <div class="row d-flex justify-content-center">
+    <div class="col-md-4 border border-primary p-4">
+      <form [formGroup]="form" (ngSubmit)="submitForm()">
+        <div class="input-group mb-3">
+          <div class="input-group-prepend">
+            <span class="input-group-text" id="basic-addon1">@</span>
+          </div>
+          <input
+            type="text"
+            class="form-control"
+            formControlName="username"
+            placeholder="Username"
+            aria-label="Username"
+            aria-describedby="basic-addon1"
+          />
+        </div>
+        <div class="input-group mb-3">
+          <div class="input-group-prepend">
+            <span class="input-group-text" id="basic-addon2">@</span>
+          </div>
+          <input
+            type="password"
+            class="form-control"
+            formControlName="password"
+            placeholder="Password"
+            aria-label="Password"
+            aria-describedby="basic-addon2"
+          />
+        </div>
+        <div class="input-group mb-3" *ngIf="!loginMode">
+          <div class="input-group-prepend">
+            <span class="input-group-text" id="basic-addon3">@</span>
+          </div>
+          <input
+            type="password"
+            class="form-control"
+            formControlName="passwordCheck"
+            placeholder="Confirm Password"
+            aria-label="Confrim Password"
+            aria-describedby="basic-addon3"
+          />
+        </div>
+        <button
+          type="submit"
+          [disabled]="form.invalid || passwordValidator()"
+          class="btn btn-primary btn-block"
+        >
+          {{ loginMode ? "Login" : "Register" }}
+        </button>
+        <button
+          type="button"
+          class="btn btn-success btn-block mt-2"
+          (click)="switchControl()"
+        >
+          {{ loginMode ? "Switch to Register" : "Switch to Login" }}
+        </button>
+      </form>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,29 @@
+<div class="card" style="width: 18rem">
+  <img
+    [src]="'https://image.tmdb.org/t/p/w500' + movie.poster_path"
+    class="card-img-top"
+    alt="..."
+  />
+  <div
+    class="
+      card-body
+      d-flex
+      flex-column
+      justify-content-center
+      align-items-center
+    "
+  >
+    <h5 class="card-title">{{ movie.title }}</h5>
+    <p class="card-text">
+      {{ movie.overview.slice(1, 50) + "..." }}
+    </p>
+    <a (click)="showDetails()" class="btn btn-primary btn-lg text-white">
+      More details</a
+    >
+    <a (click)="addToList()" class="btn btn-info text-white mt-2">
+      {{
+        watchListService.isSaved(movie) ? "Remove from List" : "Add to List"
+      }}</a
+    >
+  </div>
+</div>
