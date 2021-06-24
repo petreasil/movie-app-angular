@@ -12,10 +12,13 @@ const routes: Routes = [
     path: 'movies',
     component: MoviesComponent,
     resolve: { movies: MoviesResolver },
+    children: [
+      { path: ':id', component: MoviedetailsComponent },
+      { path: 'watchlist', component: HomeComponent },
+    ],
   },
-  { path: 'movies/:id', component: MoviedetailsComponent },
-  {path:'watchlist', component: HomeComponent},
-  { path: '**', redirectTo: '', pathMatch: 'full'},
+
+  { path: '**', redirectTo: '', pathMatch: 'full' },
 ];
 
 @NgModule({

@@ -35,12 +35,13 @@ export class WatchListService {
     return index !== -1;
   }
 
-  updateMovies() {
+  async updateMovies() {
     const payload = classToPlain(this.toWatch);
+    const user = await this.fireAuth.currentUser;
 
     this.fireStore
       .collection('users')
-      .doc(this.fireAuth.currentUser)
+      .doc(user?.uid)
       .set({ movies: payload }, { merge: true });
   }
 
