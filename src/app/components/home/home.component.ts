@@ -9,7 +9,10 @@ import { WatchListService } from 'src/app/services/watch-list.service';
 export class HomeComponent implements OnInit {
   constructor(public watchlistService: WatchListService) {}
 
-  ngOnInit(): void {
-    this.watchlistService.updateMovies();
+  async ngOnInit(): Promise<void> {
+    //await this.watchlistService.initMovies();
+    const { movies }: any = await this.watchlistService.getMovies();
+    console.log(movies);
+    this.watchlistService.toWatch = movies;
   }
 }

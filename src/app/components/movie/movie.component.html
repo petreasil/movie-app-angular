@@ -1,4 +1,4 @@
-<div class="card" style="width: 18rem">
+<div class="card h-100 rounded wrapperCard">
   <img
     [src]="'https://image.tmdb.org/t/p/w500' + movie.poster_path"
     class="card-img-top"
@@ -14,7 +14,7 @@
     "
   >
     <h5 class="card-title">{{ movie.title }}</h5>
-    <p class="card-text">
+    <p class="card-text lead">
       {{ movie.overview.slice(1, 50) + "..." }}
     </p>
     <a (click)="showDetails()" class="btn btn-primary btn-lg text-white">

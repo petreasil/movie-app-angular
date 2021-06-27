@@ -1,15 +1,13 @@
 <div class="container">
-  <!-- Portfolio Item Heading -->
   <h1 class="my-4">
     {{ movie.title }}
     <small>{{ movie.release_date }}</small>
   </h1>
 
-  <!-- Portfolio Item Row -->
   <div class="row">
     <div class="col-md-8">
       <img
-        class="img-fluid"
+        class="img-fluid h-60 center-block"
         [src]="'https://image.tmdb.org/t/p/w500' + movie.poster_path"
         alt=""
       />
@@ -29,5 +27,4 @@
       </ul>
     </div>
   </div>
-  <!-- /.row -->
 </div>

@@ -16,7 +16,9 @@ import { AngularFireModule } from '@angular/fire';
 import { environment } from 'src/environments/environment';
 import { AngularFireAuthModule } from '@angular/fire/auth';
 import { WatchListService } from './services/watch-list.service';
-import {AngularFirestoreModule} from '@angular/fire/firestore'
+import {AngularFirestoreModule} from '@angular/fire/firestore';
+import { Page404Component } from './components/page404/page404.component';
+import { MovieshomeComponent } from './components/movieshome/movieshome.component'
 
 @NgModule({
   declarations: [
@@ -26,6 +28,8 @@ import {AngularFirestoreModule} from '@angular/fire/firestore'
     HomeComponent,
     MovieComponent,
     LoginComponent,
+    Page404Component,
+    MovieshomeComponent,
   ],
   imports: [
     BrowserModule,
