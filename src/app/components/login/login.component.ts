@@ -58,7 +58,7 @@ export class LoginComponent implements OnInit {
   }
 
   async submitForm() {
-    console.log(this.form.value);
+    //console.log(this.form.value);
     const { username, password } = this.form.value;
     if (this.loginMode) {
       const result = await this.firebaseAuth.signInWithEmailAndPassword(

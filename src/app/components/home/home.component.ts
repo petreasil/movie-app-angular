@@ -12,7 +12,7 @@ export class HomeComponent implements OnInit {
   async ngOnInit(): Promise<void> {
     //await this.watchlistService.initMovies();
     const { movies }: any = await this.watchlistService.getMovies();
-    console.log(movies);
+
     this.watchlistService.toWatch = movies;
   }
 }

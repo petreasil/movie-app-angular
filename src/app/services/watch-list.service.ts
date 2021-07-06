@@ -12,20 +12,22 @@ export class WatchListService {
     private fireAuth: AngularFireAuth
   ) {}
 
-  addMovie(movie: MovieModel): void {
+  async addMovie(movie: MovieModel): Promise<void> {
     if (this.isSaved(movie)) {
       this.removeMovie(movie);
+      await this.updateMovies();
       return;
     }
     this.toWatch.push(movie);
-    console.log(this.toWatch);
+    this.updateMovies();
+    //console.log(this.toWatch);
   }
   removeMovie(movie: MovieModel): void {
     const index = this.toWatch.findIndex(
       (item: MovieModel) => item.id === movie.id
     );
     this.toWatch.splice(index, 1);
-    console.log(this.toWatch);
+    //console.log(this.toWatch);
   }
 
   isSaved(movie: MovieModel): boolean {
@@ -38,7 +40,7 @@ export class WatchListService {
   async updateMovies() {
     const payload = classToPlain(this.toWatch);
     const user = await this.fireAuth.currentUser;
-    console.log(user?.uid);
+    //console.log(user?.uid);
     this.fireStore
       .collection('users')
       .doc(user?.uid)
